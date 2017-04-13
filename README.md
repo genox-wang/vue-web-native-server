@@ -54,7 +54,10 @@ npm run serve
 <!-- 修改后的 -->
 <script src="./node_modules/weex-vue-render/dist/index.js"></script>
 
+```
+
 ---
+
 
 ### 打包`.vue`文件
 
