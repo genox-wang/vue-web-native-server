@@ -2,6 +2,12 @@
 
 [Demo源码](https://coding.net/u/loostudy/p/vue-web-native-server/git)
 
+---
+
+排坑过程中找到一个不错的项目https://github.com/wangwei123/weex-vue，自己搭建的命令行实现一键部署的功能，以后需要整合的时候可以借鉴
+
+---
+
 ## Weex开发
 
 ### 工作原理
@@ -74,6 +80,8 @@ weex compile src/foo.vue dist
 ### Android平台如何用JSBundle
 
 参考[Android平台如何用JSBundle](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
+
+
 
 ## 参考
 

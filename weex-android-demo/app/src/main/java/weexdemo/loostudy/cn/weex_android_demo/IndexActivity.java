@@ -26,13 +26,11 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
          * template 是.we transform 后的 js文件。
          * option 可以为空，或者通过option传入 js需要的参数。例如bundle js的地址等。
          * jsonInitData 可以为空。
-         * width 为-1 默认全屏，可以自己定制。
-         * height =-1 默认全屏，可以自己定制。
          * flag:渲染策略。WXRenderStrategy.APPEND_ASYNC:异步策略先返回外层View，其他View渲染完成后调用onRenderSuccess。WXRenderStrategy.APPEND_ONCE 所有控件渲染完后后一次性返回。
          */
-//        mWXSDKInstance.render("localPage", WXFileUtils.loadFileContent("foo.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
+//        mWXSDKInstance.render("localPage", WXFileUtils.loadAsset("foo.js", this), null, null, WXRenderStrategy.APPEND_ASYNC);
 
-        mWXSDKInstance.renderByUrl("urlPage", WXFileUtils.loadFileContent("http://www.happygod.cn/foo.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
+        mWXSDKInstance.renderByUrl("urlPage", "http://www.happygod.cn/foo.js", null, null, WXRenderStrategy.APPEND_ASYNC);
     }
 
     @Override

@@ -163,7 +163,7 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
          */
 //        mWXSDKInstance.render("localPage", WXFileUtils.loadFileContent("foo.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
 
-        mWXSDKInstance.renderByUrl("urlPage", WXFileUtils.loadFileContent("http://www.happygod.cn/foo.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
+        mWXSDKInstance.renderByUrl("urlPage", "http://www.happygod.cn/foo.js", null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
     }
 
     @Override
@@ -219,6 +219,11 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
     }
 }
 
+```
+Manifest添加网络权限
+
+```
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 ```
 
 ### 添加本地资源
