@@ -56,6 +56,14 @@ dependencies {
 
 ```
 
+---
+
+记住一定要最新版的SDK否则：
+
+<img src="../images/weex-android-novue.png" width="700px">
+
+---
+
 ### 代码实现
 
 - 实现图片下载接口，初始化时设置。

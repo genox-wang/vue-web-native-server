@@ -16,6 +16,8 @@ pod setup
 
 这步很重要，一开始就是因为缺失这一步，只拿到了WeexSDK (0.6.1),导致加载vue组件失败，还一直找不到原因，绕了很多弯路！
 
+<img src="../images/weex-ios-novue.png" width="500px">
+
 ---
 
 ## 安装依赖
