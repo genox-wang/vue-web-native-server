@@ -59,19 +59,19 @@ npm run serve
 ---
 
 
-### 打包`.vue`文件
+### 打包**.vue**文件
 
 ```
 
 weex compile src/foo.vue dist
 
 ```
-运行完就会在dist文件夹下找到编译完的foo.js，这个就是打包好的JSBundle
+运行完就会在dist文件夹下找到编译完的foo.js，**这个就是打包好的JSBundle**
 
 
 ### Android平台如何用JSBundle
 
-参考[Android平台如何用JSBundle]https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo
+参考[Android平台如何用JSBundle](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
 
 ## 参考
 
