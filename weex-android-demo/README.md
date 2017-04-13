@@ -9,7 +9,6 @@
 - Android SDK version 23
 - Android SDK build tools version 23.0.1
 - Android Support Repository >= 17
-- 用weex开发打包的的`bundle.js`
 
 ## 脚手架搭建
 
@@ -42,14 +41,14 @@ android {
 dependencies {
 		......
 
-		/**
-		 * compile 'com.android.support:recyclerview-v7:23.1.1'
-			 compile 'com.android.support:support-v4:23.1.1'
-			 compile 'com.android.support:appcompat-v7:23.1.1'
-			 compile 'com.alibaba:fastjson:1.1.46.android'
-			 compile 'com.taobao.android:weex_sdk:0.5.1@aar'
-			 版本只高不低
-		 */
+    /**
+     * compile 'com.android.support:recyclerview-v7:23.1.1'
+       compile 'com.android.support:support-v4:23.1.1'
+       compile 'com.android.support:appcompat-v7:23.1.1'
+       compile 'com.alibaba:fastjson:1.1.46.android'
+       compile 'com.taobao.android:weex_sdk:0.5.1@aar'
+       版本只高不低
+    */
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:recyclerview-v7:24.1.1'
     compile 'com.android.support:support-v4:24.1.1'
@@ -224,3 +223,7 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
 ### 搭建完成
 
 到此开发脚手架已经搭建完成！连接手机就可以运行调试，在Weex开发页面，打包完在渲染Activity里加渲染就可以看到效果。
+
+## 参考
+
+- [WEEX SDK集成到工程](https://github.com/weexteam/article/issues/25)
