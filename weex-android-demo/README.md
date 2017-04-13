@@ -1,8 +1,8 @@
 # Weex-Android开发
 
 
-[工程源码](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
-[WeexSDK最新版本jcenter](https://bintray.com/alibabaweex/maven/weex_sdk/view)
+- [工程源码](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
+- [WeexSDK最新版本jcenter](https://bintray.com/alibabaweex/maven/weex_sdk/view)
 
 ## 准备
 
@@ -16,7 +16,7 @@
 
 ### 创建新项目
 
-使用AndroidStudio按习惯创建项目
+使用AndroidStudio创建新项目
 
 ### gradle配置
 
