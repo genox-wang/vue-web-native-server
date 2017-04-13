@@ -221,6 +221,10 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
 
 ```
 
+### 添加本地资源
+
+在`app/src/main`目录下创建`assets`文件夹，里面放入打包好的`foo.js`
+
 ### 搭建完成
 
 到此开发脚手架已经搭建完成！连接手机就可以运行调试，在Weex开发页面，打包完在渲染Activity里加渲染就可以看到效果。
