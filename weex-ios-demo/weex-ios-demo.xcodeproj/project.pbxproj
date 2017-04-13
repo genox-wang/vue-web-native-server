@@ -15,6 +15,7 @@
 		A9339D8E1E9F6A6F008115A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9339D8D1E9F6A6F008115A6 /* Assets.xcassets */; };
 		A9339D911E9F6A6F008115A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9339D8F1E9F6A6F008115A6 /* LaunchScreen.storyboard */; };
 		A9339D9A1E9F7389008115A6 /* foo.js in Resources */ = {isa = PBXBuildFile; fileRef = A9339D991E9F7389008115A6 /* foo.js */; };
+		A989F2FF1E9FD8A300CCE5C4 /* ImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A989F2FE1E9FD8A300CCE5C4 /* ImageAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		A9339D901E9F6A6F008115A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9339D921E9F6A6F008115A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9339D991E9F7389008115A6 /* foo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = foo.js; sourceTree = "<group>"; };
+		A989F2FD1E9FD8A300CCE5C4 /* ImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAdapter.h; sourceTree = "<group>"; };
+		A989F2FE1E9FD8A300CCE5C4 /* ImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAdapter.m; sourceTree = "<group>"; };
 		E6512EFBA8EF638895D640FA /* Pods-weex-ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weex-ios-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weex-ios-demo/Pods-weex-ios-demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +89,8 @@
 				A9339D8F1E9F6A6F008115A6 /* LaunchScreen.storyboard */,
 				A9339D921E9F6A6F008115A6 /* Info.plist */,
 				A9339D811E9F6A6F008115A6 /* Supporting Files */,
+				A989F2FD1E9FD8A300CCE5C4 /* ImageAdapter.h */,
+				A989F2FE1E9FD8A300CCE5C4 /* ImageAdapter.m */,
 			);
 			path = "weex-ios-demo";
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9339D891E9F6A6F008115A6 /* ViewController.m in Sources */,
+				A989F2FF1E9FD8A300CCE5C4 /* ImageAdapter.m in Sources */,
 				A9339D861E9F6A6F008115A6 /* AppDelegate.m in Sources */,
 				A9339D831E9F6A6F008115A6 /* main.m in Sources */,
 			);

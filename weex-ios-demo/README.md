@@ -29,15 +29,36 @@ pod setup
 platform :ios, '7.0'
 
 target 'weex-ios-demo' do
-  #指定WeexSDK所在的路径是`./sdk/`这里的`.`代表`Profile`文件所在目录
-  pod 'WeexSDK', :path=>'./sdk/'
+    pod 'WeexSDK', '0.10.0'
+    pod 'SDWebImage', '3.7.5'
 end
+
 ```
 运行`pod install` 安装依赖。
 
 安装完成关闭原来的Xcode项目，打开新生成的`xxx.xcworkspace`
 
 ## 开发环境
+
+### 实现图片加载
+
+感谢仓库[^1]的作者，参照它的代码我用[SDWebImage](https://github.com/rs/SDWebImage)实现了图片异步加载
+
+```
+- (id<WXImageOperationProtocol>)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)userInfo completed:(void(^)(UIImage *image,  NSError *error, BOOL finished))completedBlock
+{
+    if ([url hasPrefix:@"//"]) {
+        url = [@"http:" stringByAppendingString:url];
+    }
+    return (id<WXImageOperationProtocol>)[[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:url] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        if (completedBlock) {
+            completedBlock(image, error, finished);
+        }
+    }];
+}
+```
 
 ### 初始化环境
 
@@ -58,23 +79,25 @@ end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //业务配置，非必需
+    // 业务配置，非必需
     [WXAppConfiguration setAppGroup:@"AliApp"];
     [WXAppConfiguration setAppName:@"WeexDemo"];
     [WXAppConfiguration setAppVersion:@"1.0.0"];
     
-    //初始化SDK环境
+    // 初始化SDK环境
     [WXSDKEngine initSDKEnviroment];
     
-//    //注册自定义module和component，非必需
+    // 设置Log输出等级：调试环境默认为Debug，正式发布会自动关闭。
+    [WXLog setLogLevel:WXLogLevelAll];
+    // 注册图片加载
+    [WXSDKEngine registerHandler:[ImageAdapter new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    
+//    // 注册自定义module和component，非必需
 //    [WXSDKEngine registerComponent:@"MyView" withClass:[MyViewComponent class]];
 //    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
 //    
-//    //注册协议的实现类，非必需
+//    // 注册协议的实现类，非必需
 //    [WXSDKEngine registerHandler:[WXNavigationDefaultImpl new] withProtocol:@protocol(WXNavigationProtocol)];
-    
-    //设置Log输出等级：调试环境默认为Debug，正式发布会自动关闭。
-    [WXLog setLogLevel:WXLogLevelAll];
     return YES;
 }
 
@@ -170,12 +193,19 @@ end
 
 ```
 
+
 ### 添加JSBundle文件
 
 添加用于本地加载的`foo.js`文件
 
 <img src="../images/weex-ios-foojs.png" width="300px">
 
+### 运行调试
+
+直接可以连接真机或者模拟器运行查看效果
+
 ## 参考
 - [Week IOS SDK 集成指南](https://open.taobao.com/doc2/detail?spm=a219a.7629140.0.0.tFddsV&&docType=1&articleId=104829)
 - [weex-iOS集成](http://www.jianshu.com/p/2ea29d381c60)
+
+[^1]:[weex-vue](https://github.com/wangwei123/weex-vue)

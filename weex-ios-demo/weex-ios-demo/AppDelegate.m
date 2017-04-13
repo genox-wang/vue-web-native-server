@@ -11,6 +11,7 @@
 #import <WeexSDK/WXLog.h> //控制Log输出的级别，包括Verbose、Debug、Info、Warning、Error，开发者可以按需来设置输出级别。
 #import <WeexSDK/WXDebugTool.h> //weex提供的对外调试工具。
 #import <WeexSDK/WXAppConfiguration.h> //使用weex开发的业务性配置。
+#import "ImageAdapter.h"
 
 
 @interface AppDelegate ()
@@ -28,6 +29,11 @@
     //初始化SDK环境
     [WXSDKEngine initSDKEnviroment];
     
+    //设置Log输出等级：调试环境默认为Debug，正式发布会自动关闭。
+    [WXLog setLogLevel:WXLogLevelAll];
+    
+    [WXSDKEngine registerHandler:[ImageAdapter new] withProtocol:@protocol(WXImgLoaderProtocol)];
+    
 //    //注册自定义module和component，非必需
 //    [WXSDKEngine registerComponent:@"MyView" withClass:[MyViewComponent class]];
 //    [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
@@ -35,8 +41,7 @@
 //    //注册协议的实现类，非必需
 //    [WXSDKEngine registerHandler:[WXNavigationDefaultImpl new] withProtocol:@protocol(WXNavigationProtocol)];
     
-    //设置Log输出等级：调试环境默认为Debug，正式发布会自动关闭。
-    [WXLog setLogLevel:WXLogLevelAll];
+    
     return YES;
 }
 
