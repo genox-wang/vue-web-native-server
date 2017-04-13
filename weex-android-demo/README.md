@@ -2,6 +2,7 @@
 
 
 [工程源码](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
+[WeexSDK最新版本jcenter](https://bintray.com/alibabaweex/maven/weex_sdk/view)
 
 ## 准备
 
@@ -24,7 +25,7 @@ apply plugin: 'com.android.application'
 
 android {
 
-		......
+        ......
 
         /**
          * 必须加，否则64位手机无法加载so文件
@@ -35,28 +36,21 @@ android {
         }
     }
 
-   	......
+    ......
 
 }
 
 dependencies {
-		......
+        ......
 
-    /**
-     * compile 'com.android.support:recyclerview-v7:23.1.1'
-       compile 'com.android.support:support-v4:23.1.1'
-       compile 'com.android.support:appcompat-v7:23.1.1'
-       compile 'com.alibaba:fastjson:1.1.46.android'
-       compile 'com.taobao.android:weex_sdk:0.5.1@aar'
-       版本只高不低
-    */
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:recyclerview-v7:24.1.1'
     compile 'com.android.support:support-v4:24.1.1'
     compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.alibaba:fastjson:1.1.46.android'
-    compile 'com.taobao.android:weex_sdk:0.5.1@aar'
-
+     //https://bintray.com/alibabaweex/maven/weex_sdk/view可以查看最新版本，尽量用最新的,0.9.5以下无法加载vue，血的教训
+    compile 'com.taobao.android:weex_sdk:0.11.0'
+    compile 'com.alibaba:fastjson:1.1.56.android'//json解析
+    compile 'com.github.bumptech.glide:glide:3.7.0'//图片加载插件
     ....
 }
 
@@ -72,6 +66,7 @@ package weexdemo.loostudy.cn.weex_android_demo;
 
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.taobao.weex.adapter.IWXImgLoaderAdapter;
 import com.taobao.weex.common.WXImageStrategy;
 import com.taobao.weex.dom.WXImageQuality;
@@ -85,6 +80,10 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
     @Override
     public void setImage(String url, ImageView view, WXImageQuality quality, WXImageStrategy strategy) {
         //实现自己的图片的下载，否则图片无法下载
+        //图片加载用glide实现 https://github.com/bumptech/glide
+        Glide.with(view.getContext())
+                .load(url)
+                .into(view);
     }
 }
 
@@ -108,10 +107,6 @@ import com.taobao.weex.WXSDKEngine;
  * 注意要在Manifest中设置android:name=".WXApplication"
  * 要实现ImageAdapter 否则图片不能下载
  * gradle 中一定要添加一些依赖，否则初始化会失败。
- * compile 'com.android.support:recyclerview-v7:23.1.1'
- * compile 'com.android.support:support-v4:23.1.1'
- * compile 'com.android.support:appcompat-v7:23.1.1'
- * compile 'com.alibaba:fastjson:1.1.45'
  */
 
 public class WXApplication extends Application {
@@ -157,13 +152,11 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
          * template 是.we transform 后的 js文件。
          * option 可以为空，或者通过option传入 js需要的参数。例如bundle js的地址等。
          * jsonInitData 可以为空。
-         * width 为-1 默认全屏，可以自己定制。
-         * height =-1 默认全屏，可以自己定制。
          * flag:渲染策略。WXRenderStrategy.APPEND_ASYNC:异步策略先返回外层View，其他View渲染完成后调用onRenderSuccess。WXRenderStrategy.APPEND_ONCE 所有控件渲染完后后一次性返回。
          */
-//        mWXSDKInstance.render("localPage", WXFileUtils.loadFileContent("foo.js", this), null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
+//        mWXSDKInstance.render("localPage", WXFileUtils.loadAsset("foo.js", this), null, null, WXRenderStrategy.APPEND_ASYNC);
 
-        mWXSDKInstance.renderByUrl("urlPage", "http://www.happygod.cn/foo.js", null, null, -1, -1, WXRenderStrategy.APPEND_ASYNC);
+        mWXSDKInstance.renderByUrl("urlPage", "http://www.happygod.cn/foo.js", null, null, WXRenderStrategy.APPEND_ASYNC);
     }
 
     @Override
@@ -220,6 +213,7 @@ public class IndexActivity extends AppCompatActivity implements IWXRenderListene
 }
 
 ```
+
 Manifest添加网络权限
 
 ```
