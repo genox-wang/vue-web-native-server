@@ -1,5 +1,8 @@
 # Weex-IOS开发
 
+- [工程源码](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-ios-demo)
+- [CocoaPods第三方库搜索](https://cocoapods.org/)
+
 ## 安装CocoaPods
 
 ```
@@ -37,6 +40,20 @@ end
 运行`pod install` 安装依赖。
 
 安装完成关闭原来的Xcode项目，打开新生成的`xxx.xcworkspace`
+
+---
+
+查看WeexSDK可用版本
+
+```
+
+pod search WeexSDK
+
+```
+
+<img src="../images/weex-ios-pods.png" width="500">
+
+---
 
 ## 开发环境
 
@@ -143,7 +160,10 @@ end
 
 - (NSURL *)url {
     if (!_url) {
-        _url =  [[NSBundle mainBundle] URLForResource:@"foo"   withExtension:@"js"];
+        //读取本地JS
+//        _url =  [[NSBundle mainBundle] URLForResource:@"foo"   withExtension:@"js"];
+        //读取网络JS
+        _url =  [NSURL URLWithString:@"http://www.happygod.cn/foo.js"];
     }
     return _url;
 }
@@ -193,6 +213,11 @@ end
 
 ```
 
+### 修改安全机制
+
+新工程默认是不能访问http和https的，我们需要修改下安全机制，这里盗张Stackoverflow的图
+
+<a href="http://stackoverflow.com/questions/31254725/transport-security-has-blocked-a-cleartext-http"><img src="https://i.stack.imgur.com/LqXFE.png" width="700px"></a>
 
 ### 添加JSBundle文件
 

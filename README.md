@@ -79,9 +79,11 @@ weex compile src/foo.vue dist
 
 ### Android平台如何用JSBundle
 
-参考[Android平台如何用JSBundle](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
+参考[Weex-Android开发](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-android-demo)
 
+### IOS平台如何用JSBundle
 
+参考[Weex-IOS开发](https://coding.net/u/loostudy/p/vue-web-native-server/git/tree/master/weex-ios-demo)
 
 ## 参考
 
