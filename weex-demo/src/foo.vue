@@ -8,13 +8,14 @@
 <style>
   .wrapper { align-items: center; margin-top: 120px; }
   .title { font-size: 48px; }
-  .logo { width: 360px; height: 82px; }
+  .logo { width: 360px; }
 </style>
 
 <script>
   export default {
     data: {
-      logoUrl: 'https://alibaba.github.io/weex/img/weex_logo_blue@3x.png',
+      logoUrl: '../assets/avatar.jpg',
+      // logoUrl: 'https://alibaba.github.io/weex/img/weex_logo_blue@3x.png',
       target: 'World'
     },
     methods: {
