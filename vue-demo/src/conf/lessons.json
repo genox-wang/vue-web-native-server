@@ -1,0 +1,321 @@
+[
+  {
+    "name": "atom",
+    "chapters": [
+      {
+        "name": "Text Editing I",
+        "items": [
+          {
+            "question": "Cut to End of Line",
+            "answer": "⌃K"
+          },
+          {
+            "question": "Delete to Beginning of Word",
+            "answer": "⌥DELETE"
+          },
+          {
+            "question": "Delete to End of Word",
+            "answer": "⌥D"
+          },
+          {
+            "question": "Delete Line",
+            "answer": "⇧⌃K"
+          },
+          {
+            "question": "Duplicate Line",
+            "answer": "⇧⌘D"
+          },
+          {
+            "question": "Go to Line",
+            "answer": "⌃G"
+          }
+        ]
+      },
+      {
+        "name": "Text Editing II",
+        "items": [
+          {
+            "question": "Go to Matching Bracket",
+            "answer": "⌃M"
+          },
+          {
+            "question": "Indent Selected Text",
+            "answer": "⌘]"
+          },
+          {
+            "question": "Outdent Selected Text",
+            "answer": "⌘["
+          },
+          {
+            "question": "Join Lines",
+            "answer": "⌘J"
+          },
+          {
+            "question": "Move to Beginning of Word",
+            "answer": "⌥B"
+          },
+          {
+            "question": "Move to End of Word",
+            "answer": "⌥F"
+          }
+        ]
+      },
+      {
+        "name": "Code Navigation I",
+        "items": [
+          {
+            "question": "Move to Beginning of Line",
+            "answer": "⌃A"
+          },
+          {
+            "question": "Move to End of Line",
+            "answer": "⌃E"
+          },
+          {
+            "question": "Move Line Up",
+            "answer": "⌃⌘UP"
+          },
+          {
+            "question": "Move Line Down",
+            "answer": "⌃⌘DOWN"
+          },
+          {
+            "question": "Move to Top of File",
+            "answer": "⌘UP"
+          },
+          {
+            "question": "Move to Bottom of File",
+            "answer": "⌘Down"
+          },
+          {
+            "question": "Move to First Character of Line",
+            "answer": "⌃A"
+          },
+          {
+            "question": "Move to Last Character of Line",
+            "answer": "⌃E"
+          }
+        ]
+      },
+      {
+        "name": "Code Selection I",
+        "items": [
+          {
+            "question": "Select Left Character",
+            "answer": "⇧⌃B"
+          },
+          {
+            "question": "Select Rigth Character",
+            "answer": "⇧⌃F"
+          },
+          {
+            "question": "Select to Beginning of Word",
+            "answer": "⇧⌥B"
+          },
+          {
+            "question": "Select to End of Word",
+            "answer": "⇧⌥F"
+          },
+          {
+            "question": "Select Entire Word",
+            "answer": "⇧⌃W"
+          }
+        ]
+      },
+      {
+        "name": "Code Selection II",
+        "items": [
+          {
+            "question": "Select to First Character of Line",
+            "answer": "⇧⌘LEFT"
+          },
+          {
+            "question": "Select to Last Character of Line",
+            "answer": "⇧⌘RIGHT"
+          },
+          {
+            "question": "Select to Same Position, Next Line",
+            "answer": "⇧DOWN"
+          },
+          {
+            "question": "Select to Same Postion, Previous Line",
+            "answer": "⇧UP"
+          },
+          {
+            "question": "Select to Top of File",
+            "answer": "⇧⌘UP"
+          },
+          {
+            "question": "Select to Bottom of File",
+            "answer": "⇧⌘DOWN"
+          },
+          {
+            "question": "Select Next",
+            "answer": "⌘D"
+          },
+          {
+            "question": "Select Line",
+            "answer": "⌘L"
+          },
+          {
+            "question": "Toggle Line Comments",
+            "answer": "⌘"
+          }
+        ]
+      },
+      {
+        "name": "Code Folding",
+        "items": [
+          {
+            "question": "Fold Code",
+            "answer": "⌥⌘["
+          },
+          {
+            "question": "Unfold Code",
+            "answer": "⌥⌘]"
+          },
+          {
+            "question": "Fold Selected Text",
+            "answer": "⌥⌃⌘F"
+          }
+        ]
+      },
+      {
+        "name": "Bookmarks",
+        "items": [
+          {
+            "question": "Toggle Bookmark",
+            "answer": "⌘F2"
+          },
+          {
+            "question": "View All Bookmarks",
+            "answer": "⌃F2"
+          },
+          {
+            "question": "Jump to Next Bookmark",
+            "answer": "F2"
+          },
+          {
+            "question": "Jump to Previous Bookmark",
+            "answer": "⇧F2"
+          },
+          {
+            "question": "Clear All Bookmarks",
+            "answer": "⇧⌘F2"
+          }
+        ]
+      },
+      {
+        "name": "Editor View / Files",
+        "items": [
+          {
+            "question": "Split Panes Vertically",
+            "answer": "⌘K DOWN"
+          },
+          {
+            "question": "Split Panes Horizontally",
+            "answer": "⌘K RIGHT"
+          },
+          {
+            "question": "Vertical Navigation Panes",
+            "answer": "⌘K ⌘DOWN"
+          },
+          {
+            "question": "Horizontal Navigation Panes",
+            "answer": "⌘K ⌘RIGHT"
+          },
+          {
+            "question": "Toggle Full Screen",
+            "answer": "⌃⌘F"
+          },
+          {
+            "question": "Toggle Tree View",
+            "answer": "⌘\\"
+          },
+          {
+            "question": "Find Open File",
+            "answer": "⌘B"
+          },
+          {
+            "question": "Find Modified, Untracked (git) File",
+            "answer": "⇧⌘B"
+          },
+          {
+            "question": "Open Tree View",
+            "answer": "⌃O"
+          },
+          {
+            "question": "Add a File",
+            "answer": "A"
+          },
+          {
+            "question": "Move a File",
+            "answer": "M"
+          },
+          {
+            "question": "Delete a File",
+            "answer": "DELETE"
+          },
+          {
+            "question": "Reopen Last File",
+            "answer": "⇧⌘T"
+          }
+        ]
+      },
+      {
+        "name": "Find & Repalace",
+        "items": [
+          {
+            "question": "Find String in Current File",
+            "answer": "⌘F"
+          },
+          {
+            "question": "Find String in All Project Files",
+            "answer": "⇧⌘F"
+          },
+          {
+            "question": "Find Next Matching String",
+            "answer": "⌘G"
+          },
+          {
+            "question": "Find Previous Matching String",
+            "answer": "⇧⌘G"
+          },
+          {
+            "question": "Select Next Matching String",
+            "answer": "⌘D"
+          },
+          {
+            "question": "Select All Matching String",
+            "answer": "⌃⌘G"
+          },
+          {
+            "question": "Replace String in Current File",
+            "answer": "⌥⌘F"
+          }
+        ]
+      },
+      {
+        "name": "Misc.",
+        "items": [
+          {
+            "question": "Open Command Palette",
+            "answer": "⇧⌘P"
+          },
+          {
+            "question": "Open Configuration Editor",
+            "answer": "⌘,"
+          },
+          {
+            "question": "Toggle Autocomplete",
+            "answer": "⌃SPACE"
+          },
+          {
+            "question": "Find Matching Bracket",
+            "answer": "⌃M"
+          }
+        ]
+      }
+    ]
+  }
+]

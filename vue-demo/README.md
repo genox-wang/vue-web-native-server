@@ -1,30 +1,14 @@
-# vue-demo
+# shortcutfoo
 
-> demo for vue
+### 开发日志
 
-## Build Setup
+#### 2017/4/26
+1. 确定配置文件结构
+2. 题目章节导航
+3. 章节练习模式实现
 
-``` bash
-# install dependencies
-npm install
+#### 待开发
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+1. 学习模式
+2. 练习模式后面章节包含前面章节所有问题
+3. 开启页面鼠标聚焦input
