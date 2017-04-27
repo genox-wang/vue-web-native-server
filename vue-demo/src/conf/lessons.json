@@ -317,5 +317,39 @@
         ]
       }
     ]
+  },
+  {
+    "name": "sublime",
+    "chapters": [
+      {
+        "name": "Text Editing I",
+        "items": [
+          {
+            "question": "Cut to End of Line",
+            "answer": "⌃K"
+          },
+          {
+            "question": "Delete to Beginning of Word",
+            "answer": "⌥DELETE"
+          },
+          {
+            "question": "Delete to End of Word",
+            "answer": "⌥D"
+          },
+          {
+            "question": "Delete Line",
+            "answer": "⇧⌃K"
+          },
+          {
+            "question": "Duplicate Line",
+            "answer": "⇧⌘D"
+          },
+          {
+            "question": "Go to Line",
+            "answer": "⌃G"
+          }
+        ]
+      }
+    ]
   }
 ]
