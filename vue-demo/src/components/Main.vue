@@ -1,19 +1,21 @@
 <template>
   <div class="layout">
     <Menu mode="horizontal" active-name="1">
-      <p class="layout-logo">SHORTCUTFOO</p>
+      <p class="layout-logo">LOOSTUDY FOO</p>
     </Menu>
-    <div v-if="subject_id === -1" class="layout-content">
-      <SubjectsMenu :subjects="subjects" @select="selectSubject"></SubjectsMenu>
-    </div>
-    <div v-if="subject_id !== -1 && chapter_id === -1" class="layout-content">
-      <ChaptersMenu :chapters="current_subject.chapters" @select="selectChapter" @back="backSubject"></ChaptersMenu>
-    </div>
-    <div v-if="chapter_id !== -1" class="layout-content">
-      <LearnAndPractice :current_items="current_items" :chapter_name="current_chapter.name" @back="backChapter"></LearnAndPractice>
-    </div>
+    <transition :name="content_transition" mode="out-in">
+      <div v-if="subject_id === -1" class="layout-content" key="1">
+        <SubjectsMenu :subjects="subjects" @select="selectSubject"></SubjectsMenu>
+      </div>
+      <div v-else-if="chapter_id === -1" class="layout-content" key="2">
+        <ChaptersMenu :chapters="current_subject.chapters" @select="selectChapter" @back="backSubject"></ChaptersMenu>
+      </div>
+      <div v-else class="layout-content" key="3">
+        <LearnAndPractice :current_items="current_items" :chapter_name="current_chapter.name" :items2current="items2current" @back="backChapter"></LearnAndPractice>
+      </div>
+    </transition>
     <div class="layout-copy">
-      2017 &copy; loostudy
+        2017 &copy; loostudy
     </div>
   </div>
 </template>
@@ -24,12 +26,26 @@ import SubjectsMenu from './SubjectsMenu.vue'
 import LearnAndPractice from './LearnAndPractice.vue'
 let lessons = require('../conf/lessons.json')
 
+lessons.map((subject) => {
+  let subjectKey = subject.key
+  subject.chapters.map((chapter) => {
+    let chapterKey = chapter.key
+    chapter.items.map((item) => {
+      item.key = subjectKey + '-' + chapterKey + '-' + item.key
+      return item
+    })
+    return chapter
+  })
+  return subject
+})
+
 export default {
   name: 'main',
   data () {
     return {
       subject_id: -1, // 课题id
-      chapter_id: -1 // 章节id
+      chapter_id: -1, // 章节id
+      content_transition: 'left-in' // 页面过渡动画
     }
   },
   components: {
@@ -49,19 +65,30 @@ export default {
     },
     current_items: function () {
       return this.current_chapter.items
+    },
+    items2current: function () {
+      let items = []
+      for (var i = 0; i < this.current_subject.chapters.length && i <= this.chapter_id; i++) {
+        items = items.concat(this.current_subject.chapters[i].items)
+      }
+      return items
     }
   },
   methods: {
     selectSubject: function (index) {
+      this.content_transition = 'right-in'
       this.subject_id = index
     },
     selectChapter: function (index) {
+      this.content_transition = 'right-in'
       this.chapter_id = index
     },
     backSubject: function () {
+      this.content_transition = 'left-in'
       this.subject_id = -1
     },
     backChapter: function () {
+      this.content_transition = 'left-in'
       this.chapter_id = -1
     }
   }
@@ -70,11 +97,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.error {
+.error,.speed-slow {
   color: #DD4B39
 }
-.currect {
+.currect,.speed-fast {
   color: #41B883
+}
+
+.speed-mid {
+  color: orange
 }
 
 .layout{
@@ -93,7 +124,7 @@ export default {
 }
 
 .layout-content{
-  min-height: 200px;
+  height:536px;
   margin: 30px 60px;
   overflow: hidden;
   background: #fff;
@@ -123,5 +154,25 @@ export default {
   margin: 10px
 }
 
+.pop-enter-active{
+  transition: all .2s ease-in;
+}
+.pop-enter{
+  transform: scaleY(.3);
+}
+
+.right-in-enter-active {
+  transition: all .2s ease-in;
+}
+.right-in-enter{
+  transform: translateX(60px);
+}
+
+.left-in-enter-active {
+  transition: all .2s ease-in;
+}
+.left-in-enter{
+  transform: translateX(-60px);
+}
 
 </style>
