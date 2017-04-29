@@ -1,17 +1,28 @@
 <template>
   <div class="layout">
-    <Menu mode="horizontal" active-name="1">
-      <p class="layout-logo">LOOSTUDY FOO</p>
+    <Menu mode="horizontal" active-name="lessons" @on-select="menuChange">
+      <Row>
+        <Col span="12"><p class="layout-logo">LOOSTUDY FOO</p></Col>
+        <Col span="8">
+          <Menu-item name="lessons"><h2>Lessons</h2></Menu-item>
+          <Menu-item name="analysis"><h2>Analysis</h2></Menu-item>
+        </Col>
+      </Row>
+
+
     </Menu>
     <transition :name="content_transition" mode="out-in">
-      <div v-if="subject_id === -1" class="layout-content" key="1">
+      <div v-if="currentPane === 'SubjectsMenu'" class="layout-content" key="1">
         <SubjectsMenu :subjects="subjects" @select="selectSubject"></SubjectsMenu>
       </div>
-      <div v-else-if="chapter_id === -1" class="layout-content" key="2">
+      <div v-else-if="currentPane === 'ChaptersMenu'" class="layout-content" key="2">
         <ChaptersMenu :chapters="current_subject.chapters" @select="selectChapter" @back="backSubject"></ChaptersMenu>
       </div>
-      <div v-else class="layout-content" key="3">
+      <div v-else-if="currentPane === 'LearnAndPractice'" class="layout-content" key="3">
         <LearnAndPractice :current_items="current_items" :chapter_name="current_chapter.name" :items2current="items2current" @back="backChapter"></LearnAndPractice>
+      </div>
+      <div class="layout-content" style="height: auto" v-else-if="currentPane === 'Analysis'" key="4">
+        <Analysis :itemkeys="keysforAnalysis"></Analysis>
       </div>
     </transition>
     <div class="layout-copy">
@@ -24,6 +35,7 @@
 import ChaptersMenu from './ChaptersMenu.vue'
 import SubjectsMenu from './SubjectsMenu.vue'
 import LearnAndPractice from './LearnAndPractice.vue'
+import Analysis from './Analysis.vue'
 let lessons = require('../conf/lessons.json')
 
 lessons.map((subject) => {
@@ -45,13 +57,15 @@ export default {
     return {
       subject_id: -1, // 课题id
       chapter_id: -1, // 章节id
-      content_transition: 'left-in' // 页面过渡动画
+      content_transition: 'left-in', // 页面过渡动画
+      currentPane: 'SubjectsMenu' // 当前页面
     }
   },
   components: {
     ChaptersMenu,
     SubjectsMenu,
-    LearnAndPractice
+    LearnAndPractice,
+    Analysis
   },
   computed: {
     subjects: function () {
@@ -72,24 +86,57 @@ export default {
         items = items.concat(this.current_subject.chapters[i].items)
       }
       return items
+    },
+    keysforAnalysis: function () {
+      let keys = {}
+      this.subjects.forEach((subject) => {
+        let subjectName = subject.name
+        subject.chapters.forEach((chapter) => {
+          let chapterName = chapter.name
+          chapter.items.forEach((item) => {
+            keys[item.key] = {
+              name: item.question,
+              chapter: chapterName,
+              subject: subjectName
+            }
+          })
+        })
+      })
+      return keys
     }
   },
   methods: {
     selectSubject: function (index) {
       this.content_transition = 'right-in'
       this.subject_id = index
+      this.currentPane = 'ChaptersMenu'
     },
     selectChapter: function (index) {
       this.content_transition = 'right-in'
       this.chapter_id = index
+      this.currentPane = 'LearnAndPractice'
     },
     backSubject: function () {
       this.content_transition = 'left-in'
       this.subject_id = -1
+      this.currentPane = 'SubjectsMenu'
     },
     backChapter: function () {
       this.content_transition = 'left-in'
       this.chapter_id = -1
+      this.currentPane = 'ChaptersMenu'
+    },
+    menuChange: function (name) {
+      this.content_transition = 'up-in'
+      switch (name) {
+        case 'lessons':
+          this.currentPane = 'SubjectsMenu'
+          break
+        case 'analysis':
+          this.currentPane = 'Analysis'
+          break
+        default:
+      }
     }
   }
 }
@@ -148,6 +195,13 @@ export default {
   margin-left: 10px;
   margin-top: 10px;
 }
+.icon-box-top-right{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  float: right;
+}
 .title{
   font-size: 25px;
   text-align: center;
@@ -174,5 +228,13 @@ export default {
 .left-in-enter{
   transform: translateX(-60px);
 }
+
+.up-in-enter-active {
+  transition: all .2s ease-in;
+}
+.up-in-enter{
+  transform: translateY(20px);
+}
+
 
 </style>

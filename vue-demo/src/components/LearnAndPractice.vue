@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import Utils from '../js/Utils'
 let keycodes = require('../conf/keycodes.json')
 const statsNone = 0
 const statsLearn = 1
@@ -68,17 +69,11 @@ export default {
     }
   },
   methods: {
-    saveStorage: function (key, json) {
-      window.localStorage.setItem(key, JSON.stringify(json))
-    },
-    loadStorage: function (key) {
-      return JSON.parse(window.localStorage.getItem(key))
-    },
     save: function (item, time, isCurrent) {
       if (this.isLearn) {
         return
       }
-      let data = this.loadStorage(item.key) || {}
+      let data = Utils.loadStorage(item.key) || {}
       let date = new Date()
       let formatDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
       if (data[formatDate] === undefined) data[formatDate] = { times: 0, currect: 0 }
@@ -96,7 +91,7 @@ export default {
         dataToday.currect ++
       }
       dataToday.times ++
-      this.saveStorage(item.key, data)
+      Utils.saveStorage(item.key, data)
     },
     back: function () {
       this.$emit('back')
@@ -113,9 +108,9 @@ export default {
     randomItem: function () {
       let rand = -1
       do {
-        rand = Math.floor(Math.random() * this.current_items.length)
-      } while (this.current_item === this.current_items[rand])
-      return this.current_items[rand]
+        rand = Math.floor(Math.random() * this.items2current.length)
+      } while (this.current_item === this.items2current[rand])
+      return this.items2current[rand]
     },
     start: function (stats) {
       this.history = []
@@ -155,7 +150,6 @@ export default {
       }
     },
     onKeyDown: function (e) {
-      // console.log(e.keyCode)
       e.preventDefault()
       if (this.stats === statsNone) { // 没有开始练习不能进行操作
         return

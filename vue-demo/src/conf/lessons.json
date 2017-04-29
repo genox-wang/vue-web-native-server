@@ -1,6 +1,6 @@
 [
   {
-    "name": "atom",
+    "name": "Atom",
     "key": 1,
     "chapters": [
       {
@@ -15,7 +15,7 @@
           {
             "key": 2,
             "question": "Delete to Beginning of Word",
-            "answer": "⌥DELETE"
+            "answer": "⌥BACKSPACE"
           },
           {
             "key": 3,
@@ -397,36 +397,123 @@
   },
   {
     "key": 2,
-    "name": "sublime",
+    "name": "Sublime Text3",
     "chapters": [
       {
         "key": 1,
-        "name": "Text Editing I",
+        "name": "Text Editing Beginner",
         "items": [
           {
             "key": 1,
-            "question": "Cut to End of Line",
-            "answer": "⌃K"
+            "question": "Move line/selection up",
+            "answer": "⌃⌘UP"
           },
           {
-            "question": "Delete to Beginning of Word",
-            "answer": "⌥DELETE"
+            "key": 2,
+            "question": "Cut line",
+            "answer": "⌘X"
           },
           {
-            "question": "Delete to End of Word",
-            "answer": "⌥D"
+            "key": 3,
+            "question": "Insert line after",
+            "answer": "⌘↵"
           },
           {
-            "question": "Delete Line",
-            "answer": "⇧⌃K"
+            "key": 4,
+            "question": "Insert line before",
+            "answer": "⇧⌘↵"
           },
           {
-            "question": "Duplicate Line",
+            "key": 5,
+            "question": "Move line/selection down",
+            "answer": "⌃⌘DOWN"
+          },
+          {
+            "key": 6,
+            "question": "Select word",
+            "answer": "⌘D"
+          },
+          {
+            "key": 7,
+            "question": "Go to matching parentheses",
+            "answer": "⌃M"
+          },
+          {
+            "key": 8,
+            "question": "Select all contents of the current",
+            "answer": "⇧⌃M"
+          }
+        ]
+      },
+      {
+        "key": 2,
+        "name": "Text Editing Intermediate",
+        "items": [
+          {
+            "key": 1,
+            "question": "Indent current line(s)",
+            "answer": "⌘]"
+          },
+          {
+            "key": 2,
+            "question": "Un-indent current line(s)",
+            "answer": "⌘["
+          },
+          {
+            "key": 3,
+            "question": "Duplicate line(s)",
             "answer": "⇧⌘D"
           },
           {
-            "question": "Go to Line",
-            "answer": "⌃G"
+            "key": 4,
+            "question": "Comment/un-comment current line",
+            "answer": "⌘/"
+          },
+          {
+            "key": 5,
+            "question": "Block comment current selection",
+            "answer": "⌥⌘/"
+          },
+          {
+            "key": 6,
+            "question": "Redo",
+            "answer": "⌘Y"
+          }
+        ]
+      },
+      {
+        "key": 3,
+        "name": "Text Editing Intermediate II",
+        "items": [
+          {
+            "key": 1,
+            "question": "Delete from cursor to end of line",
+            "answer": "⌘K ⌘K"
+          },
+          {
+            "key": 2,
+            "question": "Insert line after",
+            "answer": "⌘K BACKSPACE"
+          },
+          {
+            "key": 3,
+            "question": "Paste and indent correctly",
+            "answer": "⇧⌘V"
+          },
+          {
+            "key": 4,
+            "question": "Select next auto-complete suggestion",
+            "answer": "⌃ SPACE"
+          },
+          {
+            "key": 5,
+            "question": "Soft undo",
+            "answer": "⌘U"
+          },
+          {
+            "key": 6,
+            "question": "Paste from history",
+            "answer": "⌥⌘V"
           }
         ]
       }

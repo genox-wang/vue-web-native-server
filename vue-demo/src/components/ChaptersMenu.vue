@@ -13,7 +13,7 @@
       </Col>
     </Row>
     <Row v-for="( cs, key ) in chaptersGrid" :key="key">
-      <Col v-for="chapter in cs" :key="chapter.index" span="8"><Card class="menu-box" @click.native="select(chapter.index)"><h2>{{ chapter.name }}</h2></Card></Col>
+      <Col v-for="chapter in cs" :key="chapter.index" span="8"><Card class="menu-box" @click.native="select(chapter.index)"><h3>{{ chapter.name }}</h3></Card></Col>
     </Row>
 
   </div>
