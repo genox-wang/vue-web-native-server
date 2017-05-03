@@ -1,15 +1,13 @@
 <template>
   <div class="layout">
     <Menu mode="horizontal" active-name="lessons" @on-select="menuChange">
-      <Row>
-        <Col span="12"><p class="layout-logo">LOOSTUDY FOO</p></Col>
-        <Col span="8">
+      <row>
+        <i-col span="12"><p class="layout-logo">LOOSTUDY FOO</p></i-col>>
+        <i-col span="8">
           <Menu-item name="lessons"><h2>Lessons</h2></Menu-item>
           <Menu-item name="analysis"><h2>Analysis</h2></Menu-item>
-        </Col>
-      </Row>
-
-
+        </i-col>
+      </row>
     </Menu>
     <transition :name="content_transition" mode="out-in">
       <div v-if="currentPane === 'SubjectsMenu'" class="layout-content" key="1">
@@ -36,25 +34,12 @@ import ChaptersMenu from './ChaptersMenu.vue'
 import SubjectsMenu from './SubjectsMenu.vue'
 import LearnAndPractice from './LearnAndPractice.vue'
 import Analysis from './Analysis.vue'
-let lessons = require('../conf/lessons.json')
-
-lessons.map((subject) => {
-  let subjectKey = subject.key
-  subject.chapters.map((chapter) => {
-    let chapterKey = chapter.key
-    chapter.items.map((item) => {
-      item.key = subjectKey + '-' + chapterKey + '-' + item.key
-      return item
-    })
-    return chapter
-  })
-  return subject
-})
 
 export default {
   name: 'main',
   data () {
     return {
+      lessons: [],
       subject_id: -1, // 课题id
       chapter_id: -1, // 章节id
       content_transition: 'left-in', // 页面过渡动画
@@ -69,10 +54,10 @@ export default {
   },
   computed: {
     subjects: function () {
-      return lessons
+      return this.lessons
     },
     current_subject: function () {
-      return lessons[this.subject_id]
+      return this.lessons[this.subject_id]
     },
     current_chapter: function () {
       return this.current_subject.chapters[this.chapter_id]
@@ -82,7 +67,7 @@ export default {
     },
     items2current: function () {
       let items = []
-      for (var i = 0; i < this.current_subject.chapters.length && i <= this.chapter_id; i++) {
+      for (let i = 0; i < this.current_subject.chapters.length && i <= this.chapter_id; i++) {
         items = items.concat(this.current_subject.chapters[i].items)
       }
       return items
@@ -138,6 +123,26 @@ export default {
         default:
       }
     }
+  },
+  mounted: function () {
+    this.$http.get('/api/lessons.json').then(response => {
+      let lessons = response.data
+      lessons.map((subject) => {
+        let subjectKey = subject.key
+        subject.chapters.map((chapter) => {
+          let chapterKey = chapter.key
+          chapter.items.map((item) => {
+            item.key = subjectKey + '-' + chapterKey + '-' + item.key
+            return item
+          })
+          return chapter
+        })
+        return subject
+      })
+      this.lessons = lessons
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
 </script>

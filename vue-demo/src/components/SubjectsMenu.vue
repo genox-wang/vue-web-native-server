@@ -4,7 +4,7 @@
       <h2>Subjects</h2>
     </div>
     <Row v-for="( ss,key ) in subjectsGrid" :key="key">
-      <Col v-for="subject in ss" :key="subject.index" span="8"><Card class="menu-box" @click.native="select(subject.index)"><h2>{{ subject.name }}</h2></Card></Col>
+      <i-col v-for="subject in ss" :key="subject.index" span="8"><Card class="menu-box" @click.native="select(subject.index)"><h2>{{ subject.name }}</h2></Card></i-col>
     </Row>
 
   </div>

@@ -66,7 +66,7 @@ export default {
           sortable: 'true',
           align: 'center',
           render (row, column, index) {
-            return `<p>${row.rate + '%'}</[p]>`
+            return `<p>${row.rate + '%'}</p>`
           }
         },
         {
@@ -97,17 +97,19 @@ export default {
     },
     loadDatas: function () {
       let alldatas = []
-      for (var key in this.itemkeys) {
-        let itemdatas = Utils.loadStorage(key)
-        if (itemdatas) {
-          alldatas[key] = itemdatas
+      for (let key in this.itemkeys) {
+        if (key.startsWith('3')) { // 暂时只显示WebStorm的成绩
+          let itemdatas = Utils.loadStorage(key)
+          if (itemdatas) {
+            alldatas[key] = itemdatas
+          }
         }
       }
       this.analyseData(alldatas)
     },
     analyseData: function (alldatas) {
       let mydatas = []
-      for (var key in alldatas) {
+      for (let key in alldatas) {
         let data = alldatas[key]
         let fastest = 999999
         let slowest = 0
@@ -115,8 +117,8 @@ export default {
         let currect = 0
         let times = 0
         let avg = 0
-        for (var k in data) {
-          var d = data[k]
+        for (let k in data) {
+          let d = data[k]
           if (d.fastest) { fastest = Math.min(d.fastest, fastest) }
           if (d.slowest) { slowest = Math.max(d.slowest, slowest) }
           times += d.times

@@ -1,37 +1,37 @@
 <template>
   <div>
     <Row>
-      <Col span="3">
+      <i-col span="3">
         <Card class="back-box" @click.native="back">
           <Icon type="chevron-left" size="20"></Icon>
         </Card>
-      </Col>
-      <Col span="18">
+      </i-col>
+      <i-col span="18">
         <div class="title">
           <h2>{{ chapter_name }}</h2>
         </div>
-      </Col>
+      </i-col>
     </Row>
     <Row>
-      <Col span="8"><Card class="menu-box" style="background: #86D9FB; color: white;" @click.native="learn"><h2>Learn</h2></Card></Col>
-      <Col span="8"><Card class="menu-box" style="background: #41B883;; color: white;" @click.native="practice"><h2>Practice</h2></Card></Col>
-      <Col span="8"><Card class="menu-box" style="background: #F3625D; color: white;" @click.native="test"><h2>Test</h2></Card></Col>
+      <i-col span="8"><Card class="menu-box" style="background: #86D9FB; color: white;" @click.native="learn"><h2>Learn</h2></Card></i-col>
+      <i-col span="8"><Card class="menu-box" style="background: #41B883;; color: white;" @click.native="practice"><h2>Practice</h2></Card></i-col>
+      <i-col span="8"><Card class="menu-box" style="background: #F3625D; color: white;" @click.native="test"><h2>Test</h2></Card></i-col>
     </Row>
-    <input ref="input" style="height: 0"  @keydown="onKeyDown" @blur="onBlur" readonly="true">
+    <input ref="input" style="height: 0"  @keydown.prevent="onKeyDown" @blur="onBlur" readonly="true">
     <Card class="menu-box">
       <Row>
-        <Col span="4" style="text-align: left; padding-left: 20px"><h2>Question:</h2></Col>
-        <Col span="16"><h2 v-if="current_item !== undefined">{{ current_item.question }}</h2></Col>
-        <Col v-if="isLearn" span="4" style="text-align: right;padding-top: 5px;padding-right: 20px"><h3 v-if="current_item !== undefined">{{ current_item.answer }}</h3></Col>
+        <i-col span="4" style="text-align: left; padding-left: 20px"><h2>Question:</h2></i-col>
+        <i-col span="16"><h2 v-if="current_item !== undefined">{{ current_item.question }}</h2></i-col>
+        <i-col v-if="isLearn" span="4" style="text-align: right;padding-top: 5px;padding-right: 20px"><h3 v-if="current_item !== undefined">{{ current_item.answer }}</h3></i-col>
       </Row>
     </Card>
     <transition-group name="pop" leave-active-class="pop-leave-active">
       <Card v-for=" h in history" class="menu-box" :key="h.index">
         <Row>
-          <Col span="12" style="text-align: left; padding-left: 20px"><h3>{{ h.question }}</h3></Col>
-          <Col span="4" style="text-align: left;"><h3 :class="h.shortcutClass">{{ h.myshortcut }}</h3></Col>
-          <Col span="4" style="text-align: left;padding-left: 20px"><h3>{{ h.answer }}</h3></Col>
-          <Col span="4" style="text-align: right;padding-right: 20px"><h3 :class="h.timeClass">{{ h.time }}</h3></Col>
+          <i-col span="12" style="text-align: left; padding-left: 20px"><h3>{{ h.question }}</h3></i-col>
+          <i-col span="4" style="text-align: left;"><h3 :class="h.shortcutClass">{{ h.myshortcut }}</h3></i-col>
+          <i-col span="4" style="text-align: left;padding-left: 20px"><h3>{{ h.answer }}</h3></i-col>
+          <i-col span="4" style="text-align: right;padding-right: 20px"><h3 :class="h.timeClass">{{ h.time }}</h3></i-col>
         </Row>
       </Card>
     </transition-group>
@@ -40,7 +40,6 @@
 
 <script>
 import Utils from '../js/Utils'
-let keycodes = require('../conf/keycodes.json')
 const statsNone = 0
 const statsLearn = 1
 const statsPractice = 2
@@ -49,6 +48,7 @@ export default {
   name: 'LearnAndPractice',
   data () {
     return {
+      keycodes: [],
       myshortcut: '',          // 我的操作
       current_item: undefined, // 当前题目
       history: [],             // 操作历史
@@ -150,7 +150,7 @@ export default {
       }
     },
     onKeyDown: function (e) {
-      e.preventDefault()
+      console.log(e.keyCode)
       if (this.stats === statsNone) { // 没有开始练习不能进行操作
         return
       }
@@ -167,7 +167,7 @@ export default {
       if (e.metaKey) {
         myshortcut += '⌘'
       }
-      let _key = keycodes[e.keyCode]
+      let _key = this.keycodes[e.keyCode]
       if (_key !== undefined) {
         let costTime = new Date().getTime() - this.startTime
         myshortcut += _key
@@ -202,6 +202,11 @@ export default {
         }
       }
     }
+  },
+  mounted: function () {
+    this.$http.get('/api/keycodes.json').then(r => {
+      this.keycodes = r.data
+    }).catch(e => { console.log(e) })
   }
 }
 </script>

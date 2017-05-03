@@ -518,5 +518,105 @@
         ]
       }
     ]
+  },
+  {
+    "key": 3,
+    "name": "WebStorm",
+    "chapters": [
+      {
+        "key": 1,
+        "name": "Base",
+        "items": [
+          {
+            "key": 1,
+            "question": "Find Actions",
+            "answer": "⇧⌘A"
+          },
+          {
+            "key": 2,
+            "question": "Insert Live Template",
+            "answer": "⌘J"
+          },
+          {
+            "key": 3,
+            "question": "Refactor this",
+            "answer": "⌃T"
+          },
+          {
+            "key": 4,
+            "question": "Goto Next Splitter",
+            "answer": "⌥TAB"
+          },
+          {
+            "key": 5,
+            "question": "Goto Prevous Splitter",
+            "answer": "⌥⇧TAB"
+          },
+          {
+            "key": 6,
+            "question": "Reformat Code",
+            "answer": "⌃⌘L"
+          },
+          {
+            "key": 7,
+            "question": "Surround With ...",
+            "answer": "⌥⌘T"
+          },
+          {
+            "key": 8,
+            "question": "Surround With Live Template",
+            "answer": "⌥⌘J"
+          }
+        ]
+      },
+      {
+        "key": 2,
+        "name": "Text Editor I",
+        "items": [
+          {
+            "key": 1,
+            "question": "Indent Line or Selection",
+            "answer": "TAB"
+          },
+          {
+            "key": 2,
+            "question": "UnIndent Line or Selection",
+            "answer": "⇧TAB"
+          },
+          {
+            "key": 3,
+            "question": "Duplicate Line or Selection",
+            "answer": "⌘D"
+          },
+          {
+            "key": 4,
+            "question": "Delete Line",
+            "answer": "⌘BACKSPACE"
+          },
+          {
+            "key": 5,
+            "question": "Move Statement Up",
+            "answer": "⌘⇧UP"
+          },
+          {
+            "key": 6,
+            "question": "Move Statement Down",
+            "answer": "⌘⇧DOWN"
+          },
+          {
+            "key": 7,
+            "question": "Delete to Word End",
+            "answer": "⌥DEL"
+          },
+          {
+            "key": 8,
+            "question": "Delete to Word Start",
+            "answer": "⌥BACKSPACE"
+          }
+        ]
+      }
+    ]
   }
+
+
 ]
