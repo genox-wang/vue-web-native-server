@@ -525,98 +525,320 @@
     "chapters": [
       {
         "key": 1,
-        "name": "Base",
+        "name": "查找和删除",
         "items": [
           {
             "key": 1,
-            "question": "Find Actions",
-            "answer": "⇧⌘A"
+            "question": "在当前文件中查找",
+            "answer": "⌘G"
           },
           {
             "key": 2,
-            "question": "Insert Live Template",
-            "answer": "⌘J"
+            "question": "在某个文件夹内查找",
+            "answer": "⌘⇧F"
           },
           {
             "key": 3,
-            "question": "Refactor this",
-            "answer": "⌃T"
+            "question": "替换",
+            "answer": "⌘R"
           },
           {
             "key": 4,
-            "question": "Goto Next Splitter",
-            "answer": "⌥TAB"
+            "question": "删除行",
+            "answer": "⌘BACKSPACE"
           },
           {
             "key": 5,
-            "question": "Goto Prevous Splitter",
-            "answer": "⌥⇧TAB"
-          },
-          {
-            "key": 6,
-            "question": "Reformat Code",
-            "answer": "⌃⌘L"
-          },
-          {
-            "key": 7,
-            "question": "Surround With ...",
-            "answer": "⌥⌘T"
-          },
-          {
-            "key": 8,
-            "question": "Surround With Live Template",
-            "answer": "⌥⌘J"
+            "question": "高级重命名",
+            "answer": "⇧F6"
           }
         ]
       },
       {
         "key": 2,
-        "name": "Text Editor I",
+        "name": "选择",
         "items": [
           {
             "key": 1,
-            "question": "Indent Line or Selection",
-            "answer": "TAB"
-          },
-          {
-            "key": 2,
-            "question": "UnIndent Line or Selection",
-            "answer": "⇧TAB"
-          },
-          {
-            "key": 3,
-            "question": "Duplicate Line or Selection",
+            "question": "复制行",
             "answer": "⌘D"
           },
           {
-            "key": 4,
-            "question": "Delete Line",
-            "answer": "⌘BACKSPACE"
+            "key": 2,
+            "question": "剪切行",
+            "answer": "⌘X"
           },
           {
-            "key": 5,
-            "question": "Move Statement Up",
+            "key": 3,
+            "question": "选中多相同单词，一起修改",
+            "answer": "⌃G"
+          },
+          {
+            "key": 4,
+            "question": "向上移动选中代码块",
             "answer": "⌘⇧UP"
           },
           {
-            "key": 6,
-            "question": "Move Statement Down",
+            "key": 5,
+            "question": "向下移动选中代码块",
             "answer": "⌘⇧DOWN"
           },
           {
-            "key": 7,
-            "question": "Delete to Word End",
-            "answer": "⌥DEL"
+            "key": 6,
+            "question": "增加代码块选择",
+            "answer": "⌥UP"
           },
           {
-            "key": 8,
-            "question": "Delete to Word Start",
-            "answer": "⌥BACKSPACE"
+            "key": 7,
+            "question": "缩小代码块选择",
+            "answer": "⌥DOWN"
+          }
+        ]
+      },
+      {
+        "key": 3,
+        "name": "导航",
+        "items": [
+          {
+            "key": 1,
+            "question": "选择最近打开的文件",
+            "answer": "⌘E"
+          },
+          {
+            "key": 2,
+            "question": "跳转到定义",
+            "answer": "⌘B"
+          },
+          {
+            "key": 3,
+            "question": "显示快捷目录",
+            "answer": "⌘UP"
+          },
+          {
+            "key": 4,
+            "question": "复制文件当前路径",
+            "answer": "⌘⇧C"
+          }
+        ]
+      },
+      {
+        "key": 4,
+        "name": "标签页",
+        "items": [
+          {
+            "key": 1,
+            "question": "切换上一个标签",
+            "answer": "⌘⇧["
+          },
+          {
+            "key": 2,
+            "question": "切换下一个标签",
+            "answer": "⌘⇧]"
+          },
+          {
+            "key": 3,
+            "question": "合并下一行",
+            "answer": "⌃⇧J"
+          }
+        ]
+      },
+      {
+        "key": 5,
+        "name": "显示",
+        "items": [
+          {
+            "key": 1,
+            "question": "折叠代码块",
+            "answer": "⌘-"
+          },
+          {
+            "key": 2,
+            "question": "展开折叠代码块",
+            "answer": "⌘+"
+          },
+          {
+            "key": 3,
+            "question": "折叠所有代码块",
+            "answer": "⌘⇧-"
+          },
+          {
+            "key": 4,
+            "question": "展开所有代码块",
+            "answer": "⌘⇧+"
+          },
+          {
+            "key": 5,
+            "question": "折叠展开选中代码块",
+            "answer": "⌘."
+          },
+          {
+            "key": 6,
+            "question": "显示参数信息",
+            "answer": "⌘P"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": 4,
+    "name": "Iterm2",
+    "chapters": [
+      {
+        "key": 1,
+        "name": "标签",
+        "items": [
+          {
+            "key": 1,
+            "question": "新建标签",
+            "answer": "⌘T"
+          },
+          {
+            "key": 2,
+            "question": "关闭标签",
+            "answer": "⌘W"
+          },
+          {
+            "key": 3,
+            "question": "切换上一个标签",
+            "answer": "⌘LEFT"
+          },
+          {
+            "key": 4,
+            "question": "切换下一个标签",
+            "answer": "⌘RIGHT"
+          },
+          {
+            "key": 5,
+            "question": "切换到第3个标签",
+            "answer": "⌘3"
+          }
+        ]
+      },
+      {
+        "key": 2,
+        "name": "屏幕",
+        "items": [
+          {
+            "key": 1,
+            "question": "垂直分屏",
+            "answer": "⌘D"
+          },
+          {
+            "key": 2,
+            "question": "切换上一个屏幕",
+            "answer": "⌘⌥LEFT"
+          },
+          {
+            "key": 3,
+            "question": "切换下一个屏幕",
+            "answer": "⌘⌥RIGHT"
+          },
+          {
+            "key": 4,
+            "question": "清屏",
+            "answer": "⌘R"
+          },
+          {
+            "key": 5,
+            "question": "切换全屏",
+            "answer": "⌘↵"
+          }
+        ]
+      },
+      {
+        "key": 3,
+        "name": "历史",
+        "items": [
+          {
+            "key": 1,
+            "question": "查看历史命令",
+            "answer": "⌘;"
+          },
+          {
+            "key": 2,
+            "question": "上一个命令",
+            "answer": "⌃P"
+          },
+          {
+            "key": 3,
+            "question": "下一个命令",
+            "answer": "⌃N"
+          }
+        ]
+      },
+      {
+        "key": 4,
+        "name": "删除",
+        "items": [
+          {
+            "key": 1,
+            "question": "清除当前行",
+            "answer": "⌃U"
+          },
+          {
+            "key": 2,
+            "question": "删除光标到行尾",
+            "answer": "⌃K"
+          },
+          {
+            "key": 3,
+            "question": "删除光标到行首",
+            "answer": "⌃W"
+          },
+          {
+            "key": 4,
+            "question": "删除当前光标字符",
+            "answer": "⌃D"
+          },
+          {
+            "key": 5,
+            "question": "删除光标前的字符",
+            "answer": "⌃H"
+          }
+        ]
+      },
+      {
+        "key": 4,
+        "name": "编辑",
+        "items": [
+          {
+            "key": 1,
+            "question": "光标移到行尾",
+            "answer": "⌃E"
+          },
+          {
+            "key": 2,
+            "question": "光标移到行首",
+            "answer": "⌃A"
+          },
+          {
+            "key": 3,
+            "question": "光标前进",
+            "answer": "⌃F"
+          },
+          {
+            "key": 4,
+            "question": "光标后退",
+            "answer": "⌃B"
+          },
+          {
+            "key": 5,
+            "question": "光标后移一个单词",
+            "answer": "⌥F"
+          },
+          {
+            "key": 6,
+            "question": "光标前移一个单词",
+            "answer": "⌥B"
+          },
+          {
+            "key": 7,
+            "question": "交换光标文本",
+            "answer": "⌃T"
           }
         ]
       }
     ]
   }
-
-
 ]
